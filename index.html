@@ -4,377 +4,358 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All girl are the same</title>
-    <link rel="shortcut icon" href="https://img.icons8.com/?size=100&id=19318&format=png&color=000000"
-        type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>My Computer Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <style>
+        /* CSS from the previous cleanup steps, now integrated */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+        /* HEADER */
+        header {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* FIX: Content starts after header (Adjusted for slimmer sticky header) */
+        main {
+            padding-top: 100px;
+        }
+
+        /* NAVIGATION/FOOTER LINKS */
+        .top-nav a:hover,
+        .footer a:hover {
+            color: #007bff !important;
+        }
+
+        /* PRODUCT CARD STYLE */
+        .product-img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Added minor hover effect to cards */
+        .card {
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+    </style>
 </head>
 
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    .hero {
-        background-color: #818d98;
-        text-align: center;
-        padding: 3rem 2rem;
-    }
-
-    .hero h1 {
-        color: #2c3e50;
-        margin-bottom: 1rem;
-    }
-
-    .hero img {
-        background-color: cover;
-        width: 100%;
-    }
-
-    .now {
-        background-color: blue;
-        border: none;
-        width: 120px;
-        height: 50px;
-        border-radius: 50px;
-        color: white;
-    }
-
-    .main-footer {
-        background-color: #2c3e50;
-        color: white;
-        padding: 12px;
-        border-radius: 10px;
-    }
-
-    .footer {
-        display: block;
-        padding: 0px;
-        gap: 0px;
-        align-items: center;
-        justify-content: center;
-    }
-
-    footer p {
-        margin-top: 10px;
-        color: blue;
-        font-size: 24px;
-        text-align: center;
-    }
-
-    .icon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-    }
-
-    .icon img {
-        width: 32px;
-        height: 32px;
-        margin: 10px;
-    }
-
-    header {
-        background-color: #2c3e50;
-        padding: 1rem;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-    }
-
-    nav {
-        padding: 0;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo {
-        width: auto;
-        height: auto;
-        display: flex;
-        gap: 10px;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .logo img {
-        width: 60px;
-        height: 60px;
-        color: white;
-    }
-
-    .logo h2 {
-        font-size: 26px;
-        font-family: Arial, Helvetica, sans-serif;
-        color: rgb(255, 255, 255);
-    }
-
-    nav ul {
-        list-style: none;
-        display: flex;
-        gap: 1.5rem;
-        justify-content: center;
-        text-align: center;
-    }
-
-    nav a {
-        color: white;
-        text-decoration: none;
-        padding: 0.5rem 1rem;
-    }
-
-    nav a:hover,
-    nav a.active {
-        background-color: #7c99b4;
-        border-radius: 5px;
-    }
-
-    .btn {
-        background-color: pink;
-        width: 100px;
-        height: 40px;
-        border: none;
-        border-radius: 20px;
-        color: white;
-        font-size: 16px;
-    }
-
-    .btn:hover {
-        color: #333;
-        cursor: pointer;
-        background-color: beige;
-    }
-
-    .container-product {
-        padding: 10px;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        width: 100%;
-        margin: 0;
-        gap: 10px;
-    }
-
-    .logo-product {
-        text-align: center;
-        width: 100%;
-        padding: 10px;
-        height: auto;
-        font-family: Arial;
-        justify-content: center;
-        border-radius: 30px;
-    }
-
-    .container-dis {
-        position: relative;
-        display: inline-block;
-    }
-
-    .discount {
-        width: 60px;
-        position: absolute;
-        top: 43px;
-        right: 79px;
-        color: rgb(255, 255, 255);
-        padding: 5px 10px;
-        border-radius: 10px;
-        font-size: 14px;
-        background-color: rgb(255, 0, 43);
-    }
-
-    .logo-product img {
-        width: 350px;
-        padding: 0;
-    }
-
-    .price-product {
-        font-weight: bold;
-        font-size: 22px;
-        color: black;
-        margin-bottom: 8px;
-    }
-
-    .text-product {
-        font-size: 16px;
-        color: gray;
-        margin-bottom: 8px;
-    }
-
-    .btn-product {
-
-        border: none;
-        border-radius: 8px;
-        width: 200px;
-        padding: 10px 20px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        background-color: rgb(138, 138, 243);
-        color: aliceblue;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    .logo-product img:hover {
-        transform: scale(1.2);
-        transition: transform 0.3s ease;
-    }
-
-    .footer {
-        border-top: 5px solid #000000;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #51efd0;
-        padding: 20px;
-    }
-
-    .footer-logo {
-        padding: 2px;
-        display: flex;
-        align-items: center;
-        margin-left: 80px;
-        justify-content: center;
-    }
-
-    .footer-logo img {
-        width: 80px;
-        height: 80px;
-    }
-
-    .footer-item h2 {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 24px;
-    }
-
-    .footer-list {
-        display: flex;
-        justify-content: space-between;
-        padding: 20px;
-    }
-
-    .footer-item {
-        padding: 0 20px;
-    }
-
-    .footer-item li {
-        list-style: none;
-
-    }
-
-    .footer-item li a {
-        text-decoration: none;
-        color: black;
-    }
-
-    .footer-local {
-        display: flex;
-    }
-
-    .footer-local img {
-        width: 16px;
-        margin: 0 10px;
-    }
-
-    .footer-local li a {
-        color: rgb(0, 0, 0);
-    }
-
-    .footer-item li a :hover {
-        text-decoration: underline;
-    }
-
-    .follow-logo {
-        justify-content: center;
-        align-items: center;
-    }
-
-    .follow-logo h2 {
-        font-size: 24px;
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: center;
-    }
-
-    .follow-logo img {
-        width: 36px;
-        padding: 0 10px;
-    }
-
-    .follow-logo h2:hover {
-        color: pink;
-    }
-</style>
-
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
 
-        <div class="container-fluid mt-3">
-    <h2 class="text-center">My Responsive</h2>
+    <header class="bg-white sticky-top">
+        <div class="top-nav container-fluid px-3 d-flex justify-content-between align-items-center py-3">
+            <a class="logo text-decoration-none text-dark fs-5 fw-bold d-flex align-items-center gap-2" href="#">
+                <i class="fa-solid fa-laptop"></i> My Shop
+            </a>
 
-    <div class="row g-4">
-        <div class="col-12 col-md-4 col-lg-3">
-            <div class="card h-300 w-100">
-                <img src="https://hips.hearstapps.com/hmg-prod/images/gh-best-skincare-products-6557978b58b57.png?crop=0.888888888888889xw:1xh;center,top&resize=1200:*" class="card-img-top" alt="...">
+            <nav class="d-none d-md-block">
+                <ul class="list-unstyled d-flex gap-4 mb-0">
+                    <li><a class="text-decoration-none text-dark" href="#">Home</a></li>
+                    <li><a class="text-decoration-none text-dark" href="#">Products</a></li>
+                    <li><a class="text-decoration-none text-dark" href="#">Contact</a></li>
+                    <li><a class="text-decoration-none text-dark" href="#">About Us</a></li>
+                </ul>
+            </nav>
 
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the card’s content.
-                    </p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="cart-area d-flex align-items-center gap-2">
+                <button type="button" class="btn btn-outline-primary position-relative d-none d-lg-block">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="badge text-bg-danger rounded-pill position-absolute top-0 start-100 translate-middle">4</span>
+                </button>
+
+                <button type="button" class="btn btn-primary position-relative">
+                    Profile
+                    <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                        <span class="visually-hidden">New alerts</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <div class="category-bar d-flex align-items-center gap-3 px-3 py-2 border-top border-bottom">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-list"></i> Categories
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Laptop</a></li>
+                    <li><a class="dropdown-item" href="#">Mac Book</a></li>
+                    <li><a class="dropdown-item" href="#">Lenovo</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Go To Product</a></li>
+                </ul>
+            </div>
+
+            <form class="d-flex flex-grow-1" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search for products">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </header>
+
+    <main>
+        <div class="container mt-4">
+            <h2 class="text-black mb-4">My Products</h2>
+            <div class="row g-4">
+
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="https://media.wired.com/photos/68f69d5bbc18f7cc86077b9f/master/w_2560%2Cc_limit/Review-%2520Apple%2520MacBook%2520Pro%2520(M5%2C%252014-Inch).png"
+                            class="card-img-top product-img" alt="MacBook Pro">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Mac Book Pro M5</h5>
+                            <p class="mb-1">Price: <span class="text-primary fw-bolder">$1000</span></p>
+                            <p class="text-warning mb-2">⭐⭐⭐⭐⭐</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1">This sleek, powerful laptop is perfect for professionals and creatives.</p>
+                            <div class="d-grid gap-2 d-md-flex justify-content-center mt-auto">
+                                <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#buyModal">
+                                    <i class="fas fa-shopping-bag"></i> Buy Now
+                                </a>
+                                <a href="#" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-cart-plus"></i> Add to cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="https://dlcdnwebimgs.asus.com/gain/5C8D822E-6BE1-448F-9819-2CF68A90B368/w717/h525"
+                            class="card-img-top product-img" alt="MacBook Pro">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Gaming Laptop RTX 4080</h5>
+                            <p class="mb-1">Price: <span class="text-primary fw-bolder">$2499</span></p>
+                            <p class="text-warning mb-2">⭐⭐⭐⭐</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1">Extreme performance for the most demanding games and applications.</p>
+                            <div class="d-grid gap-2 d-md-flex justify-content-center mt-auto">
+                                <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#buyModal">
+                                    <i class="fas fa-shopping-bag"></i> Buy Now
+                                </a>
+                                <a href="#" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-cart-plus"></i> Add to cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6ftbKQwLXg_TwuP3Mnvv-0XQRNUbx5gJvEw&s"
+                            class="card-img-top product-img" alt="Lenovo ThinkPad">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Lenovo ThinkPad X1</h5>
+                            <p class="mb-1">Price: <span class="text-primary fw-bolder">$1850</span></p>
+                            <p class="text-warning mb-2">⭐⭐⭐⭐⭐</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1">Reliable, business-class security and durability.</p>
+                            <div class="d-grid gap-2 d-md-flex justify-content-center mt-auto">
+                                <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#buyModal">
+                                    <i class="fas fa-shopping-bag"></i> Buy Now
+                                </a>
+                                <a href="#" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-cart-plus"></i> Add to cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="https://rootitsupport.com/userfiles/plus_9320-2.png"
+                            class="card-img-top product-img" alt="Dell XPS">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Dell XPS 13</h5>
+                            <p class="mb-1">Price: <span class="text-primary fw-bolder">$1299</span></p>
+                            <p class="text-warning mb-2">⭐⭐⭐⭐</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1">The perfect blend of portability and power for everyday tasks.</p>
+                            <div class="d-grid gap-2 d-md-flex justify-content-center mt-auto">
+                                <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#buyModal">
+                                    <i class="fas fa-shopping-bag"></i> Buy Now
+                                </a>
+                                <a href="#" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-cart-plus"></i> Add to cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="https://static0.xdaimages.com/wordpress/wp-content/uploads/2022/02/HP-Spectre-x360-16-1.jpg"
+                            class="card-img-top product-img" alt="HP Spectre">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">HP Spectre x360</h5>
+                            <p class="mb-1">Price: <span class="text-primary fw-bolder">$1450</span></p>
+                            <p class="text-warning mb-2">⭐⭐⭐⭐⭐</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1">A versatile 2-in-1 convertible for maximum flexibility.</p>
+                            <div class="d-grid gap-2 d-md-flex justify-content-center mt-auto">
+                                <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#buyModal">
+                                    <i class="fas fa-shopping-bag"></i> Buy Now
+                                </a>
+                                <a href="#" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-cart-plus"></i> Add to cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="https://dlcdnwebimgs.asus.com/gain/14730014-9B03-4369-83EE-B668F348B5AA"
+                            class="card-img-top product-img" alt="Asus ROG">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Asus ROG Strix</h5>
+                            <p class="mb-1">Price: <span class="text-primary fw-bolder">$1999</span></p>
+                            <p class="text-warning mb-2">⭐⭐⭐⭐</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1">High-refresh rate display and powerful GPU for eSports.</p>
+                            <div class="d-grid gap-2 d-md-flex justify-content-center mt-auto">
+                                <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#buyModal">
+                                    <i class="fas fa-shopping-bag"></i> Buy Now
+                                </a>
+                                <a href="#" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-cart-plus"></i> Add to cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="https://cdn.mos.cms.futurecdn.net/MbabCUQcJpid6yUzDcesNb-1200-80.jpg"
+                            class="card-img-top product-img" alt="Microsoft Surface">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Microsoft Surface Pro</h5>
+                            <p class="mb-1">Price: <span class="text-primary fw-bolder">$950</span></p>
+                            <p class="text-warning mb-2">⭐⭐⭐⭐⭐</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1">A versatile 2-in-1 with excellent stylus support for artists.</p>
+                            <div class="d-grid gap-2 d-md-flex justify-content-center mt-auto">
+                                <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#buyModal">
+                                    <i class="fas fa-shopping-bag"></i> Buy Now
+                                </a>
+                                <a href="#" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-cart-plus"></i> Add to cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="https://egyptlaptop.com/images/detailed/78/Acer-Predator-Helios-300-PH315-54-760S.webp"
+                            class="card-img-top product-img" alt="Acer Predator">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Acer Predator Helios</h5>
+                            <p class="mb-1">Price: <span class="text-primary fw-bolder">$2250</span></p>
+                            <p class="text-warning mb-2">⭐⭐⭐⭐</p>
+                            <p class="card-text text-muted mb-3 flex-grow-1">Maximum performance and cooling for hardcore gaming sessions.</p>
+                            <div class="d-grid gap-2 d-md-flex justify-content-center mt-auto">
+                                <a href="#" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#buyModal">
+                                    <i class="fas fa-shopping-bag"></i> Buy Now
+                                </a>
+                                <a href="#" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-cart-plus"></i> Add to cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer bg-light p-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <img src="https://img.icons8.com/?size=100&id=102552&format=png&color=000000" alt="Logo" style="width: 40px;">
+                        <h3 class="h4 fw-bold mb-0">Computer Shop</h3>
+                    </div>
+                    <p class="small text-muted mb-3">At TechZone Computer Shop, we bring you the best in modern technology. Whether you're a gamer, student, professional, or business owner, we offer a wide range of laptops, desktop computers, components, and peripherals tailored to your needs.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#"><img src="https://img.icons8.com/?size=100&id=118468&format=png&color=000000" alt="Facebook" style="width: 24px;"></a>
+                        <a href="#"><img src="https://img.icons8.com/?size=100&id=e19IaX7vpxi9&format=png&color=000000" alt="Twitter" style="width: 24px;"></a>
+                        <a href="#"><img src="https://img.icons8.com/?size=100&id=32309&format=png&color=000000" alt="Instagram" style="width: 24px;"></a>
+                        <a href="#"><img src="https://img.icons8.com/?size=100&id=lUktdBVdL4Kb&format=png&color=000000" alt="LinkedIn" style="width: 24px;"></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 offset-lg-2">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <h5 class="fw-bold mb-2">Product</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="text-decoration-none text-secondary">Gaming Laptop</a></li>
+                                <li><a href="#" class="text-decoration-none text-secondary">Desktop PC</a></li>
+                                <li><a href="#" class="text-decoration-none text-secondary">Monitor</a></li>
+                                <li><a href="#" class="text-decoration-none text-secondary">Keyboard</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <h5 class="fw-bold mb-2">Resources</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="text-decoration-none text-secondary">Specifications</a></li>
+                                <li><a href="#" class="text-decoration-none text-secondary">User manuals</a></li>
+                                <li><a href="#" class="text-decoration-none text-secondary">Drivers</a></li>
+                                <li><a href="#" class="text-decoration-none text-secondary">Warranty</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <h5 class="fw-bold mb-2">Company</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="text-decoration-none text-secondary">Home</a></li>
+                                <li><a href="#" class="text-decoration-none text-secondary">Product</a></li>
+                                <li><a href="#" class="text-decoration-none text-secondary">Contact</a></li>
+                                <li><a href="#" class="text-decoration-none text-secondary">About Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-         <div class="col-12 col-md-4 col-lg-3">
-            <div class="card h-300">
-                <img src="https://hips.hearstapps.com/hmg-prod/images/gh-best-skincare-products-6557978b58b57.png?crop=0.888888888888889xw:1xh;center,top&resize=1200:*" class="card-img-top" alt="...">
+    </footer>
 
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the card’s content.
-                    </p>
-                    <a href="#" class="btn btn-primary align-items-center">Go somewhere</a>
+    <div class="modal fade" id="buyModal" tabindex="-1" aria-labelledby="buyModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="buyModalLabel">Confirm Purchase</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            </div>
-        </div>
-         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-300">
-                <img src="https://hips.hearstapps.com/hmg-prod/images/gh-best-skincare-products-6557978b58b57.png?crop=0.888888888888889xw:1xh;center,top&resize=1200:*" class="card-img-top" alt="...">
-
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the card’s content.
-                    </p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="modal-body">
+                    You are about to buy the selected product. Proceed to checkout?
                 </div>
-            </div>
-        </div>
-         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-300">
-                <img src="https://hips.hearstapps.com/hmg-prod/images/gh-best-skincare-products-6557978b58b57.png?crop=0.888888888888889xw:1xh;center,top&resize=1200:*" class="card-img-top" alt="...">
-
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">
-                        Some quick example text to build on the card title and make up the bulk of the card’s content.
-                    </p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success">Proceed to Checkout</button>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>
