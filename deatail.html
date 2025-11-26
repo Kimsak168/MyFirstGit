@@ -27,6 +27,9 @@
         background-color: #fff;
         border-radius: 8px;
     }
+        header {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
 
     /* Thumbnails */
     .img-text {
@@ -100,33 +103,56 @@
 </style>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">
-                <i class="fas fa-laptop me-2"></i> My Tech Shop
+       <header class="bg-white sticky-top">
+        <div class="top-nav container-fluid px-3 d-flex justify-content-between align-items-center py-3">
+            <a class="logo text-decoration-none text-dark fs-5 fw-bold d-flex align-items-center gap-2" href="#">
+                <i class="fa-solid fa-laptop"></i> My Shop
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-box"></i> Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-user-circle"></i> Account</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i> Cart (0)</a>
-                    </li>
+
+            <nav class="d-none d-md-block">
+                <ul class="list-unstyled d-flex gap-4 mb-0">
+                    <li><a class="text-decoration-none text-dark " href="index.html">Home</a></li>
+                    <li><a class="text-decoration-none text-dark" href="deatail.html">Products</a></li>
+                    <li><a class="text-decoration-none text-dark" href="#">Contact</a></li>
+                    <li><a class="text-decoration-none text-dark" href="#">About Us</a></li>
                 </ul>
+            </nav>
+
+            <div class="cart-area d-flex align-items-center gap-2">
+                <button type="button" class="btn btn-outline-primary position-relative d-none d-lg-block">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="badge text-bg-danger rounded-pill position-absolute top-0 start-100 translate-middle">4</span>
+                </button>
+
+                <button type="button" class="btn btn-primary position-relative">
+                    Profile
+                    <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                        <span class="visually-hidden">New alerts</span>
+                    </span>
+                </button>
             </div>
         </div>
-    </nav>
+
+        <div class="category-bar d-flex align-items-center gap-3 px-3 py-2 border-top border-bottom">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-list"></i> Categories
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Laptop</a></li>
+                    <li><a class="dropdown-item" href="#">Mac Book</a></li>
+                    <li><a class="dropdown-item" href="#">Lenovo</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Go To Product</a></li>
+                </ul>
+            </div>
+
+            <form class="d-flex flex-grow-1" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search for products">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </header>
     
     <main class="py-4">
         <div class="container mt-4">
